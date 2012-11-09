@@ -272,7 +272,9 @@ class S3(object):
         request = self.create_request("BUCKET_LIST", bucket = uri.bucket(), extra = "?location")
         response = self.send_request(request)
         location = getTextFromXml(response['data'], "LocationConstraint")
-        if not location or location in [ "", "US" ]:
+        if not location or location  == "":
+            location = ""
+        elif location == "US":
             location = "us-east-1"
         elif location == "EU":
             location = "eu-west-1"
