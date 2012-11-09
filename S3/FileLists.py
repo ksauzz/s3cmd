@@ -224,7 +224,7 @@ def fetch_remote_list(args, require_attribs = False, recursive = None):
                 remote_list[key] = objectlist[key]
     else:
         for uri in remote_uris:
-            uri_str = str(uri)
+            uri_str = unicode(uri)
             ## Wildcards used in remote URI?
             ## If yes we'll need a bucket listing...
             if uri_str.find('*') > -1 or uri_str.find('?') > -1:
